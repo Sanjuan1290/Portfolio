@@ -3,27 +3,28 @@ import React from "react";
 const Projects: React.FC = () => {
   const projects = [
     {
-      title: "Portfolio Website",
-      desc: "A clean, responsive portfolio built with React and Tailwind CSS.",
-      img: "https://via.placeholder.com/400x200", // placeholder image
-      repo: "#",
-      demo: "#",
+      title: "BROOM all about music",
+      desc: "A music platform where users can explore, visualize 3D and rent sound system. Built with responsive design for smooth access on all devices.",
+      img: "https://broomallaboutmusic.netlify.app/logo.png",
+      repo: "https://github.com/Sanjuan1290/BroomAllAboutMusic",
+      demo: "https://broomallaboutmusic.netlify.app/",
     },
     {
-      title: "E-commerce App",
-      desc: "Full-stack e-commerce platform with Node.js, MongoDB, and Stripe integration.",
-      img: "https://via.placeholder.com/400x200",
-      repo: "#",
-      demo: "#",
+      title: "ComfySloth",
+      desc: "An e-commerce web app for comfy lifestyle products. Features product listings, cart functionality, and checkout simulation.",
+      img: "https://comfysloth123.netlify.app/HomeImages/ShopNowImage/niceTable.png",
+      repo: "https://github.com/Sanjuan1290/ComfySloth",
+      demo: "https://comfysloth123.netlify.app",
     },
     {
-      title: "IoT Dashboard",
-      desc: "Real-time monitoring dashboard for IoT devices with live charts.",
-      img: "https://via.placeholder.com/400x200",
-      repo: "#",
-      demo: "#",
+      title: "Amazon Clone",
+      desc: "A React-based clone of Amazon's front-end, including product browsing, search functionality, and a shopping cart system.",
+      img: "https://amazonreactclo.netlify.app/logos/amazon-logo-white.png",
+      repo: "https://github.com/Sanjuan1290/AmazonClone_React",
+      demo: "https://amazonreactclo.netlify.app",
     },
   ];
+
 
   return (
     <section

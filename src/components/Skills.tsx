@@ -38,7 +38,6 @@ const Skills: React.FC = () => {
     { name: "Canva", icon: <SiCanva className="text-blue-400 text-3xl" /> },
     { name: "GitHub", icon: <FaGithub className="text-gray-200 text-3xl" /> },
     { name: "Git", icon: <FaGitAlt className="text-red-500 text-3xl" /> },
-    { name: "TanStack", icon: <span className="text-yellow-400 text-xl font-bold">TS</span> },
   ];
 
   return (
