@@ -39,6 +39,7 @@ const Gallery: React.FC = () => {
     <section
       ref={sectionRef as React.RefObject<HTMLElement>}
       className="py-10"
+      id="gallery"
     >
         <h1 className="text-center font-bold text-4xl mb-8">Gallery</h1>
       {loading ? (

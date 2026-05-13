@@ -19,6 +19,11 @@ const Header = () => {
           </a>
         </li>
         <li>
+          <a href="#gallery" className="hover:text-pink-400 transition">
+            Gallery
+          </a>
+        </li>
+        <li>
           <a href="#skills" className="hover:text-pink-400 transition">
             Skills
           </a>
