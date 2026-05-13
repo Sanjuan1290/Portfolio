@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { FaGithub, FaWhatsapp, FaLinkedin } from "react-icons/fa";
 import { SiGmail } from "react-icons/si";
-import { supabase } from "../lib/supabase";
+import emailjs from "@emailjs/browser";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
 
 type Status = "idle" | "sending" | "success" | "error";
+
+const SERVICE_ID  = import.meta.env.VITE_EMAILJS_SERVICE_ID  as string;
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string;
+const PUBLIC_KEY  = import.meta.env.VITE_EMAILJS_PUBLIC_KEY  as string;
 
 const Contact: React.FC = () => {
   const { ref: sectionRef, visible } = useScrollAnimation();
@@ -22,16 +26,24 @@ const Contact: React.FC = () => {
     if (!form.name || !form.email || !form.message) return;
 
     setStatus("sending");
-    const { error } = await supabase
-      .from("messages")
-      .insert([{ name: form.name, email: form.email, message: form.message }]);
 
-    if (error) {
-      console.error(error);
-      setStatus("error");
-    } else {
+    try {
+      await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name:  form.name,
+          from_email: form.email,
+          message:    form.message,
+          time:       new Date().toLocaleString("en-PH", { timeZone: "Asia/Manila" }),
+        },
+        PUBLIC_KEY
+      );
       setStatus("success");
       setForm({ name: "", email: "", message: "" });
+    } catch (err) {
+      console.error(err);
+      setStatus("error");
     }
   };
 
@@ -87,7 +99,6 @@ const Contact: React.FC = () => {
           />
         </div>
 
-        {/* Status feedback */}
         {status === "success" && (
           <p className="mb-4 text-green-400 text-sm font-medium">
             ✅ Message sent! I'll get back to you soon.
@@ -112,34 +123,16 @@ const Contact: React.FC = () => {
       <div
         className={`flex gap-6 mt-8 text-2xl text-gray-400 scroll-hidden ${visible ? "scroll-visible" : ""} delay-400`}
       >
-        <a
-          href="https://github.com/Sanjuan1290"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-white transition hover:scale-125"
-        >
+        <a href="https://github.com/Sanjuan1290" target="_blank" rel="noopener noreferrer" className="hover:text-white transition hover:scale-125">
           <FaGithub />
         </a>
-        <a
-          href="mailto:robertrenbysanjuan@gmail.com"
-          className="hover:text-red-400 transition hover:scale-125"
-        >
+        <a href="mailto:robertrenbysanjuan@gmail.com" className="hover:text-red-400 transition hover:scale-125">
           <SiGmail />
         </a>
-        <a
-          href="https://wa.me/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-green-400 transition hover:scale-125"
-        >
+        <a href="https://wa.me/" target="_blank" rel="noopener noreferrer" className="hover:text-green-400 transition hover:scale-125">
           <FaWhatsapp />
         </a>
-        <a
-          href="https://linkedin.com/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="hover:text-blue-400 transition hover:scale-125"
-        >
+        <a href="https://linkedin.com/" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition hover:scale-125">
           <FaLinkedin />
         </a>
       </div>
