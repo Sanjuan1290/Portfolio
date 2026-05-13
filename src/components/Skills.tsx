@@ -23,7 +23,6 @@ const Skills: React.FC = () => {
     { name: "Tailwind",   icon: <SiTailwindcss className="text-sky-400 text-3xl"  /> },
     { name: "MongoDB",    icon: <SiMongodb   className="text-green-400 text-3xl"  /> },
     { name: "MySQL",      icon: <SiMysql     className="text-blue-400 text-3xl"   /> },
-    { name: "Firebase",   icon: <SiFirebase  className="text-yellow-500 text-3xl" /> },
     { name: "Postman",    icon: <SiPostman   className="text-orange-500 text-3xl" /> },
     { name: "Figma",      icon: <FaFigma     className="text-pink-500 text-3xl"   /> },
     { name: "Canva",      icon: <SiCanva     className="text-blue-400 text-3xl"   /> },
