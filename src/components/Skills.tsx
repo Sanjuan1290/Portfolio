@@ -4,7 +4,7 @@ import {
   FaHtml5, FaCss3Alt, FaJs, FaFigma,
 } from "react-icons/fa";
 import {
-  SiTailwindcss, SiMongodb, SiMysql, SiFirebase,
+  SiTailwindcss, SiMongodb, SiMysql,
   SiPostman, SiCanva, SiExpress, SiTypescript,
 } from "react-icons/si";
 import { useScrollAnimation } from "../hooks/useScrollAnimation";
